@@ -76,6 +76,7 @@
 		<th><center>Nama pegawai</center></th>
         <th><center>Jabatan</center></th>
         <th><center>Golongan</center></th>
+        <th><center>Besaran Uang</center></th>
         <th colspan="3"><center>Action</center></th>
 			
 		</tr>
@@ -89,8 +90,9 @@
 			<td><center>{{$no++}}</center></td>
 			<td><center>{{$tunjangan_pegawais->tunjanganModel->kode_tunjangan}}</center></td>
 			<td><center>{{$tunjangan_pegawais->pegawaiModel->User->name}}</center></td>
-            <td><center>{{$tunjangan_pegawais->pegawaiModel->jabatanModel->nama_jabatan}}</center></td>
-            <td><center>{{$tunjangan_pegawais->pegawaiModel->golonganModel->nama_golongan}}</center></td>
+            <td><center>{{$tunjangan_pegawais->tunjanganModel->jabatanModel->nama_jabatan}}</center></td>
+            <td><center>{{$tunjangan_pegawais->tunjanganModel->golonganModel->nama_golongan}}</center></td>
+            <td><center><?php echo 'Rp.' . number_format($tunjangan_pegawais->tunjanganModel->besaran_uang,2,',','.') ?></center></td>
 		<td><center><a href="{{route('tunjangan_pegawai.edit',$tunjangan_pegawais->id)}}" class="btn btn-warning">Update</center></a></td>	
 		</td>
 		<td><center>

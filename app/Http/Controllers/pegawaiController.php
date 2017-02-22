@@ -10,7 +10,7 @@ use Input;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Http\Request;
+use Request;
 
 
 
@@ -97,10 +97,10 @@ class pegawaiController extends Controller
 
 
            $akun=new User ;
-         $akun->name=$request->get('name');
-         $akun->email=$request->get('email');
-         $akun->password=bcrypt($request->get('password'));
-         $akun->permision=$request->get('permision');
+         $akun->name=Input::get('name');
+         $akun->email=Input::get('email');
+         $akun->password=bcrypt(Input::get('password'));
+         $akun->permision=Input::get('permision');
          $akun->save();
 
         $file = Input::file('foto');
@@ -110,11 +110,11 @@ class pegawaiController extends Controller
 
         if(Input::hasFile('foto')){
          $pegawai=new pegawaiModel ;
-         $pegawai->nip=$request->get('nip');
+         $pegawai->nip=Input::get('nip');
          $pegawai->foto = $filename;
          //$pegawai->foto=Input::get('foto');
-         $pegawai->jabatan_id=$request->get('jabatan_id');
-         $pegawai->golongan_id=$request->get('golongan_id');
+         $pegawai->jabatan_id=Input::get('jabatan_id');
+         $pegawai->golongan_id=Input::get('golongan_id');
          $pegawai->user_id=$akun->id;
          $pegawai->save();
          
@@ -209,6 +209,8 @@ class pegawaiController extends Controller
 
         // }
         $updatepegawai=Request::all();
+        $jabatan=jabatanModel::all();
+        $golongan=golonganModel::all();
         $pegawai=User::find($id);
         // // $user=User::where('id',$pegawai->user_id) ;
         // // dd($user);

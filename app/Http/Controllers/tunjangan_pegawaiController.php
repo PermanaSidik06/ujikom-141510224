@@ -51,6 +51,7 @@ class tunjangan_pegawaiController extends Controller
        $tunjangan_pegawai=Request::all();
        $jabatan=jabatanModel::all();
        $golongan=golonganModel::all();
+       $tunjangan=tunjanganModel::all();
        tunjangan_pegawaiModel::create($tunjangan_pegawai);
         return redirect('tunjangan_pegawai');
     }
@@ -75,8 +76,10 @@ class tunjangan_pegawaiController extends Controller
     public function edit($id)
     {
         //
-        $tunjangan_pegawai=tunjangan_pegawaiModel::all();
-        return view('tunjangan_pegawai.edit',compact('tunjangan_pegawai'));
+        $tunjangan_pegawai=tunjangan_pegawaiModel::find($id);
+        $tunjangan=tunjanganModel::all();
+        $pegawai=pegawaiModel::all();
+        return view('tunjangan_pegawai.edit',compact('tunjangan_pegawai', 'tunjangan', 'pegawai'));
     }
 
     /**
@@ -90,6 +93,8 @@ class tunjangan_pegawaiController extends Controller
     {
         //
         $Update=Request::all();
+        $tunjangan=tunjanganModel::find($id);
+        $pegawai=pegawaiModel::find($id);
         $tunjangan_pegawai=tunjangan_pegawaiModel::find($id);
         $tunjangan_pegawai->update($Update);
         return redirect('tunjangan_pegawai');

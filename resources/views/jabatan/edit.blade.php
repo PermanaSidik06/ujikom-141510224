@@ -73,9 +73,11 @@
                     <div class="col-md-6">
                         <label>Kode Jabatan</label>
                         <input type="text" name="kode_jabatan" class="form-control" value="{{$jabatan->kode_jabatan}}" >
-                        <span class="help-block">
-                            <strong>{{ $errors->first('kode_jabatan') }}</strong>
-                        </span>
+                       @if ($errors->has('kode_jabatan'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('kode_jabatan') }}</strong>
+                                    </span>
+                                @endif
                     </div>
                     <div class="col-md-6">
                         <label>Jabatan</label>

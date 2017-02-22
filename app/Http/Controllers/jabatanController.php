@@ -99,14 +99,17 @@ class jabatanController extends Controller
     {
         //
         $cariid=jabatanModel::find($id);
-        if ($cariid->kode_jabatan != Request('kode_jabatan')) {
+        
+        if ($cariid->kode_jabatan = Request('kode_jabatan')) 
+        {
             
          $definisi=['kode_jabatan'=>'required|unique:jabatan',
                    'nama_jabatan'=>'required',
                    'besaran_uang'=>'required|numeric|min:0'];
         }
-        else{
-         $definisi=['kode_jabatan'=>'required',
+        else
+        {
+         $definisi=['kode_jabatan'=>'required|unique:jabatan',
                    'nama_jabatan'=>'required',
                    'besaran_uang'=>'required|numeric|min:0'];
         }

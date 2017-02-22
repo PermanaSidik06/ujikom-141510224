@@ -2,7 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
+use DB;
+use App\lembur_pegawaiModel;
+use App\tunjangan_pegawaiModel;
+use App\pegawaiModel;
+use App\tunjanganModel;
+use App\penggajianModel;
+use App\jabatanModel;
+use App\kategori_lemburModel;
+use App\golonganModel;
+use App\User;
+
 
 class penggajianController extends Controller
 {
@@ -14,6 +25,9 @@ class penggajianController extends Controller
     public function index()
     {
         //
+        $penggajian=penggajianModel::all();
+        $tunjangan_pegawai=tunjangan_pegawaiModel::all();
+        return view('penggajian.index', compact('penggajian'));
     }
 
     /**
@@ -35,6 +49,7 @@ class penggajianController extends Controller
     public function store(Request $request)
     {
         //
+
     }
 
     /**

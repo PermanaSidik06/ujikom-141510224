@@ -68,7 +68,7 @@
                         {{ csrf_field() }}
 
                          <div class="col-md-12">
-                                <label>Nama Pegawai</label>
+                                <label>Kode Tunjangan</label>
                                 <select name="kode_tunjangan" class="form-control">
                                 @foreach($tunjangan as $datatunjangan)
                                     <option value="{{$datatunjangan->id}}">

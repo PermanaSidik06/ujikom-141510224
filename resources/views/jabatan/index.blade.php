@@ -1,4 +1,4 @@
-@extends('layouts/app')
+@extends('layouts.app')
 @section('content')
 <style type="text/css">
 	th,td{
@@ -53,9 +53,9 @@
                     <a class="btn btn-primary form-control" href="{{url('golongan')}}">Golongan</a><hr>
                     <a class="btn btn-primary form-control" href="{{url('pegawai')}}">Pegawai</a><hr>
                     <a class="btn btn-primary form-control" href="{{url('kategori_lembur')}}">Kategori Lembur</a><hr>
-                    <a class="btn btn-primary form-control" href="{{url('lemburpegawai')}}">Lembur Pegawai</a><hr>
+                    <a class="btn btn-primary form-control" href="{{url('lembur_pegawai')}}">Lembur Pegawai</a><hr>
                     <a class="btn btn-primary form-control" href="{{url('tunjangan')}}">Tunjangan</a><hr>
-                    <a class="btn btn-primary form-control" href="{{url('tunjanganpegawai')}}">Tunjangan Karyawan</a><hr>
+                    <a class="btn btn-primary form-control" href="{{url('tunjangan_pegawai')}}">Tunjangan Karyawan</a><hr>
                     <a class="btn btn-primary form-control" href="{{url('penggajian')}}">Penggajian Karyawan</a><hr>  
   
 
@@ -95,8 +95,7 @@
 			<td>{{$no++}}</td>
 			<td>{{$jabatans->kode_jabatan}}</td>
 			<td>{{$jabatans->nama_jabatan}}</td>
-			<?php $jabatans->besaran_uang=number_format($jabatans->besaran_uang,2,',','.') ?>
-			<td>{{$jabatans->besaran_uang}}</td>
+            <td><center><?php echo 'Rp.' . number_format($jabatans->besaran_uang,2,',','.') ?></center></td>
 			
 		<td><a href="{{route('jabatan.edit',$jabatans->id)}}" class="btn btn-warning">Update</a></td>	
 		</td>

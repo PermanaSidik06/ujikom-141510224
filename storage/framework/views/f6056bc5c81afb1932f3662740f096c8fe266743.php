@@ -68,7 +68,7 @@
 
 
                          <div class="col-md-12">
-                                <label>Nama Pegawai</label>
+                                <label>Kode Tunjangan</label>
                                 <select name="kode_tunjangan" class="form-control">
                                 <?php $__currentLoopData = $tunjangan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $datatunjangan): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
                                     <option value="<?php echo e($datatunjangan->id); ?>">

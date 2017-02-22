@@ -76,7 +76,7 @@
 		<th><center>kode lembur</center></th>
 		<th><center>jabatan </center></th>
 		<th><center>golongan </center></th>
-		<th><center>besaran_uang </center></th>
+		<th><center>besaran uang </center></th>
 		<th colspan="3">Action</th>
 			
 		</tr>
@@ -91,7 +91,7 @@
 			<td><center><?php echo e($kategori_lemburs->kode_lembur); ?></center></td>
 			<td><center><?php echo e($kategori_lemburs->jabatanModel->nama_jabatan); ?></center></td>
 			<td><center><?php echo e($kategori_lemburs->golonganModel->nama_golongan); ?></center></td>
-			<td><center><?php echo e($kategori_lemburs->besaran_uang); ?></center></td>
+			<td><center><?php echo 'Rp.' . number_format($kategori_lemburs->besaran_uang,2,',','.') ?></center></td>
 			
 		<td><a href="<?php echo e(route('kategori_lembur.edit',$kategori_lemburs->id)); ?>" class="btn btn-warning">Update</a></td>	
 		</td>

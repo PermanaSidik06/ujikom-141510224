@@ -69,15 +69,15 @@
 <a href="<?php echo e(url('/tunjangan/create')); ?>"class="btn btn-primary form-control">Tambah Data</a>
 <br><br>
 	<thead>
-		<tr class="bg-info">
+		<tr class="danger">
 		<th>No</th>
 		<th><center>kode tunjangan</center></th>
 		<th><center>jabatan </center></th>
 		<th><center>golongan </center></th>
 		<th><center>status</center></th>
-		<th>jumlah anak</th>
-		<th>besaran uang</th>
-		<th colspan="3">Action</th>
+		<th><center>jumlah anak</center></th>
+		<th><center>besaran uang</center></th>
+		<th colspan="3"><center>Action</center></th>
 	</th>
 			
 		</tr>
@@ -94,7 +94,7 @@
 			<td><center><?php echo e($tunjangans->golonganModel->nama_golongan); ?></center></td>
 			<td><center><?php echo e($tunjangans->status); ?></center></td>
 			<td><center><?php echo e($tunjangans->jumlah_anak); ?></center></td>
-			<td><center><?php echo e($tunjangans->besaran_uang); ?></center></td>
+			<td><center><?php echo 'Rp.' . number_format($tunjangans->besaran_uang,2,',','.') ?></center></td>
 
 
 		<td><a href="<?php echo e(route('tunjangan.edit',$tunjangans->id)); ?>"class="btn btn-warning">edit</a></td>	

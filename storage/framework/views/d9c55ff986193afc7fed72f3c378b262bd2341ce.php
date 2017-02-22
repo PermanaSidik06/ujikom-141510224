@@ -70,7 +70,7 @@
                 <div class="form-group"><center>
                     <form action="<?php echo e(url('/pegawai')); ?>/?name=name">
                     <input type="text" name="name" placeholder="Cari">
-                    <input class="btn btn-sm btn-primary" type="submit" value="Cari" /></form>
+                    <input class="btn btn-sm btn-primary" type="submit" value="Cari"/></form>
                 </center></div>
 
 <a href="<?php echo e(url('/pegawai/create')); ?>"class="btn btn-primary form-control">Tambah Data</a>

@@ -68,7 +68,7 @@
 <center><h1>Data golongan</h1></center>
 
 <hr>
-	<div class="col-md-8">
+	<div class="col-md-9">
 		<table class="table table-striped table-bordered table-hover">
 			<!-- <table class="table table-default"> -->
 				<tr class="danger">
@@ -96,7 +96,7 @@
 			<td>{{$no++}}</td>
 			<td>{{$golongans->kode_golongan}}</td>
 			<td>{{$golongans->nama_golongan}}</td>
-			<td>{{$golongans->besaran_uang}}</td>
+			<td><center><?php echo 'Rp.' . number_format($golongans->besaran_uang,2,',','.') ?></center></td>
 			
 		<td><a href="{{route('golongan.edit',$golongans->id)}}" class="btn btn-warning">Update</a></td>	
 		</td>

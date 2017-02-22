@@ -74,9 +74,11 @@
                     <div class="col-md-6">
                         <label>Kode Jabatan</label>
                         <input type="text" name="kode_jabatan" class="form-control" value="<?php echo e($jabatan->kode_jabatan); ?>" >
-                        <span class="help-block">
-                            <strong><?php echo e($errors->first('kode_jabatan')); ?></strong>
-                        </span>
+                       <?php if($errors->has('kode_jabatan')): ?>
+                                    <span class="help-block">
+                                        <strong><?php echo e($errors->first('kode_jabatan')); ?></strong>
+                                    </span>
+                                <?php endif; ?>
                     </div>
                     <div class="col-md-6">
                         <label>Jabatan</label>

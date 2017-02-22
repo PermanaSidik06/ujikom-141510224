@@ -60,7 +60,7 @@
         <div class="row">
             <div class="col-md-8 ">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h3>Create Lembur Pegawai</h3> </div>
+                    <div class="panel-heading"><h3><center>Tambah Lembur Pegawai</center></h3> </div>
                     <div class="panel-body">
 
 

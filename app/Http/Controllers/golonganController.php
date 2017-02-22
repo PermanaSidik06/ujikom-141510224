@@ -101,7 +101,7 @@ class golonganController extends Controller
     {
         //
         $cariid=golonganModel::find($id);
-        if ($cariid->kode_golongan != Request('kode_golongan')) {
+        if ($cariid->kode_golongan = Request('kode_golongan')) {
             $definisi=['kode_golongan'=>'required|unique:golongan',
            'nama_golongan'=>'required',
            'besaran_uang'=>'required|numeric|min:0'];

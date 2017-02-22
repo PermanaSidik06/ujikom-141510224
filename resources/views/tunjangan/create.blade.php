@@ -60,15 +60,15 @@
         <div class="row">
             <div class="col-md-8 ">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h3>Tunjangan</h3> </div>
+                    <div class="panel-heading"><h3><center>Tambah Tunjangan</center></h3> </div>
                     <div class="panel-body">
 
                      {!! Form::open(['url' => 'tunjangan']) !!}
 
-                     <div class="form-group">
+                     <div class="col-md-12">
 
                                 <label>Kode Tunjangan</label>
-                                <input type="text" class="form-control" name="kode_tunjangan" autofocus>
+                                <input type="text" class="form-control" name="kode_tunjangan" required autofocus>
 
                                     <span class="help-block">
                                         <strong>{{ $errors->first('kode_tunjangan') }}</strong>
@@ -97,19 +97,20 @@
                                     </span>
                     </div>
 
-                    <div class="form-group">
+                    <div class="col-md-12">
                         {!! Form::label('Status', 'Status') !!}
                         {!! Form::text('status',null,['class'=>'form-control','required']) !!}
                     </div>
 
-                    <div class="form-group">
+                    <div class="col-md-12">
                         {!! Form::label('jumlah anak', 'jumlah anak') !!}
                         {!! Form::text('jumlah_anak',null,['class'=>'form-control','required']) !!}
                     </div>
-                    <div class="form-group">
+                    <div class="col-md-12">
                         {!! Form::label('besaran uang', 'besaran uang') !!}
                         {!! Form::text('besaran_uang',null,['class'=>'form-control','required']) !!}
                     </div>
+                    &nbsp;
                     <div class="col-md-12">
                         {!! Form::submit('SAVE', ['class' => 'btn btn-primary form-control']) !!}
                     </div>

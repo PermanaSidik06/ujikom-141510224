@@ -60,13 +60,13 @@
         <div class="row">
             <div class="col-md-8 ">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h3>Register</h3> </div>
+                    <div class="panel-heading"><h3><center>Update</center></h3> </div>
                     <div class="panel-body">
                      <?php echo Form::model($pegawai,['method'=>'PATCH','route'=>['pegawai.update' ,$pegawai->id]]); ?>
 
                             <div class="col-md-6">
                                 <label for="name" >Nama Pegawai</label>
-                                <input id="name" value="<?php echo e($user->name); ?>" type="text" class="form-control" name="name" autofocus>
+                                <input id="name" value="<?php echo e($user->name); ?>" type="text" class="form-control" name="name" required autofocus>
 
                                     <span class="help-block">
                                         <strong><?php echo e($errors->first('name')); ?></strong>
@@ -75,7 +75,7 @@
 
                             <div class="col-md-6">
                                 <label for="email" >E-MAIL</label>
-                                <input id="email" value="<?php echo e($user->email); ?>" type="email" class="form-control" name="email" autofocus>
+                                <input id="email" value="<?php echo e($user->email); ?>" type="email" class="form-control" name="email" required autofocus>
 
                                     <span class="help-block">
                                         <strong><?php echo e($errors->first('email')); ?></strong>
@@ -89,7 +89,7 @@
 
                              <div class="col-md-6">
                                 <label >Type User Baru</label>
-                                   <select name="permision" class="col-md-12 form-control">
+                                   <select name="permision" class="col-md-12 form-control" required>
                                        <option>Admin</option>
                                        <option>HRD</option>
                                        <option>Bagian Administrasi</option>
@@ -99,7 +99,7 @@
 
                             <div class="col-md-6">
                                 <label >Password</label>
-                                    <input id="password" type="password" class="form-control" name="password" autofocus>
+                                    <input id="password" type="password" class="form-control" name="password" required autofocus>
 
                                         <span class="help-block">
                                             <strong><?php echo e($errors->first('password')); ?></strong>
@@ -109,7 +109,7 @@
                             <div class="col-md-6">
                                 <label >Confirm Password</label>
 
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autofocus>
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autofocus>
                             </div>
                         </div>
                     </div>
@@ -123,12 +123,12 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="panel panel-default">
-                        <div class="panel-heading"><h3>Tambah Data Pegawai</h3> </div>
+                        <div class="panel-heading"><h3><center>Update Data Pegawai</center></h3> </div>
                         <div class="panel-body">
 
                             <div class="col-md-12">
                                 <label for="nip" >NIP Pegawai</label>
-                                <input id="nip" value="<?php echo e($pegawai->nip); ?>" type="text" class="form-control" name="nip" autofocus>
+                                <input id="nip" value="<?php echo e($pegawai->nip); ?>" type="text" class="form-control" name="nip" required autofocus>
 
                                     <span class="help-block">
                                         <strong><?php echo e($errors->first('nip')); ?></strong>
@@ -155,30 +155,30 @@
 
                             <div class="col-md-6">
                                 <label for="Jabatan">Jabatan</label>
-                                    <select class="col-md-6 form-control" name="jabatan_id">
+                                    <select class="col-md-6 form-control" name="nama_jabatan">
                                         <?php $__currentLoopData = $jabatan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $datajabatan): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
                                             <option  value="<?php echo e($datajabatan->id); ?>" ><?php echo e($datajabatan->nama_jabatan); ?></option>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
                                     </select>
-                                    <span><?php echo e($errors->first('jabatan_id')); ?></span>
+                                    <span><?php echo e($errors->first('nama_jabatan')); ?></span>
                             </div>
 
                             <div class="col-md-6">
                                 <label for="Jabatan">Golongan</label>
-                                    <select class="col-md-6 form-control" name="golongan_id">
+                                    <select class="col-md-6 form-control" name="nama_golongan">
                                         <?php $__currentLoopData = $golongan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $datagolongan): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
                                             <option  value="<?php echo e($datagolongan->id); ?>" ><?php echo e($datagolongan->nama_golongan); ?></option>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
                                     </select>
                                     <span class="help-block">
-                                        <?php echo e($errors->first('golongan_id')); ?>
+                                        <?php echo e($errors->first('nama_golongan')); ?>
 
                                     </span>
                             </div>
 
                             <div class="col-md-12">
                                 <label >Foto Pegawai</label>
-                                      <input type="file" name="foto" value="<?php echo e(old('foto')); ?>" 'required' ></input>
+                                      <input type="file" name="foto" value="<?php echo e(old('foto')); ?>" required ></input>
 
                                     <?php if($errors->has('foto')): ?>
                                         <span class="help-block">

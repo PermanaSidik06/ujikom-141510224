@@ -61,7 +61,7 @@
         <div class="row">
             <div class="col-md-8 ">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h3>Register</h3> </div>
+                    <div class="panel-heading"><h3><center>Tambah Kategori Lembur</center></h3> </div>
                     <div class="panel-body">
 
                      {!! Form::open(['url' => 'kategori_lembur']) !!}
@@ -97,12 +97,12 @@
                     <div class="col-md-12">
                         {!! Form::label('besaran uang', 'besaran uang') !!}
                         {!! Form::text('besaran_uang',null,['class'=>'form-control']) !!}
-                    </div>
                     @if ($errors->has('besaran_uang'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('besaran_uang') }}</strong>
                                     </span>
                     @endif
+                    </div>
                     &nbsp
                     <div class="col-md-12">
                         {!! Form::submit('SAVE', ['class' => 'btn btn-primary form-control']) !!}
