@@ -2,10 +2,9 @@
 
 @section('content')
 <center>
-                <h3>MY APPLICATION</h3>
-                    <h5>SELAMAT DATANG {{auth::user()->name }}</h5>
-                </div>
-            </div>
-        </div>
+                    <font><h1>Selamat datang {{auth::user()->name }}</h1></font>
+                    <font><h1>Login Sebagai : {{auth::user()->permision }}</h1></font>
+                    <font><h1>Alamat Email Anda : {{auth::user()->email }}</h1></font>
+                
 </center>
 @endsection

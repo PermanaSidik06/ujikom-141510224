@@ -59,6 +59,4 @@
 </table>
 <center>{{$searchuser->links()}}</center>
 
-
-
 @endsection

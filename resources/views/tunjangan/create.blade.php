@@ -37,10 +37,24 @@
                                     </span>
                     </div>
 
-                    <div class="col-md-12">
-                        {!! Form::label('Status', 'Status') !!}
-                        {!! Form::text('status',null,['class'=>'form-control','required']) !!}
-                    </div>
+                    <div class="form-group{{ $errors->has('status') ? ' has-error' : '' }}">
+                            <label for="status" class="col-md-12 control-label">Status</label>
+
+                            <div class="col-md-6">
+                                <select name="status" class="form-control">
+                                    <option value="">Pilih</option>
+                                    <option value="Belum Menikah">Belum Menikah</option>
+                                    <option value="Menikah">Menikah</option>
+                                    <option value="Duda">Duda</option>
+                                    <option value="Janda">Janda</option>
+                                </select>
+                                @if ($errors->has('status'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('status') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
 
                     <div class="col-md-12">
                         {!! Form::label('jumlah anak', 'jumlah anak') !!}

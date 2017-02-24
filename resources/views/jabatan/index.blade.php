@@ -14,7 +14,7 @@
 		<th><center>nama jabatan</center></th>
 		<th><center>besaran uang</center></th>
 		
-		<th colspan="3">Action</th>
+		<th colspan="3"><center>Action</center></th>
 			
 		</tr>
 	</thead>
@@ -24,18 +24,19 @@
 		@endphp
 		@foreach($jabatan as $jabatans)
 		<tr>
-			<td>{{$no++}}</td>
-			<td>{{$jabatans->kode_jabatan}}</td>
-			<td>{{$jabatans->nama_jabatan}}</td>
+			<td><center>{{$no++}}</center></td>
+			<td><center>{{$jabatans->kode_jabatan}}</center></td>
+			<td><center>{{$jabatans->nama_jabatan}}</center></td>
             <td><center><?php echo 'Rp.' . number_format($jabatans->besaran_uang,2,',','.') ?></center></td>
 			
-		<td><a href="{{route('jabatan.edit',$jabatans->id)}}" class="btn btn-warning">Update</a></td>	
+		<td><center><a href="{{route('jabatan.edit',$jabatans->id)}}" class="btn btn-warning">Update</a></center></td>	
 		</td>
-		<td>
+		<td><center>
 
 		{!!Form::open(['method'=>'DELETE','route'=>['jabatan.destroy',$jabatans->id]])!!}
 		<input type="submit" class="btn btn-danger" onclick="return confirm('anda yakin akan menghapus data?');"value="Delete"> 
 		{!!Form::close()!!}
+        </center>
 		</td>
 		</tr>
 		

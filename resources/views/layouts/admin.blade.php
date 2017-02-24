@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
     <title>MY APPLICATION WEB</title>
     <!-- Core CSS - Include with every page -->
     <link href="{{url('admin/assets/plugins/bootstrap/bootstrap.css')}}" rel="stylesheet" />
@@ -26,20 +26,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-
-               <div class="col-lg-12">
-                    <h1 class="" align="center">MY APPLICATION WEB</h1>
+                 <div class="col-lg-12">
+                    <h1 class="" align="center">My Application Web</h1>
+                </div>
                 </div>       
-
             </div>
-            <ul class="nav navbar-top-links navbar-right">
-                    </ul>
-                    <!-- end dropdown-user -->
-                </li>
-                <!-- end main dropdown -->
-            </ul>
-            <!-- end navbar-top-links -->
-
         </nav>
         <!-- end navbar top -->
 
@@ -56,10 +47,6 @@
                                 <img src="admin/assets/img/2.jpg">
                             </div>
                         <div>
-                           <a href="/home">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
                             <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Logout
@@ -182,16 +169,12 @@
             </div>
         </nav>
         <div id="page-wrapper">
-
-            <div class="row">
-
-        
-            </div>
-            @yield('content')
+        @yield('content')
+      
         </div>
         <!-- end page-wrapper -->
 
-    </div>
+    
     <!-- end wrapper -->
 
     <!-- Core Scripts - Include with every page -->
@@ -204,7 +187,6 @@
     <script src="{{url('admin/assets/plugins/morris/raphael-2.1.0.min.js')}}"></script>
     <script src="{{url('admin/assets/plugins/morris/morris.js')}}"></script>
     <script src="{{url('admin/assets/scripts/dashboard-demo.js')}}"></script>
-
 </body>
 
 </html>

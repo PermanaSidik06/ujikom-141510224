@@ -5,7 +5,7 @@
 		<table class="table table-striped table-bordered table-hover">
 
 			<a href="{{url('/golongan/create')}}"class="btn btn-primary form-control">Tambah Data</a><br><br>
-			{{$golongan->links()}}
+			
 			
 	<thead>
 		<tr class="bg-info">
@@ -42,8 +42,5 @@
 
 	</tbody>
 </table>
-
-
-
-
+{{$golongan->links()}}
 @endsection

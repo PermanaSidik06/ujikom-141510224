@@ -13,7 +13,7 @@
 		<th><center>nama jabatan</center></th>
 		<th><center>besaran uang</center></th>
 		
-		<th colspan="3">Action</th>
+		<th colspan="3"><center>Action</center></th>
 			
 		</tr>
 	</thead>
@@ -23,20 +23,21 @@
 		 ?>
 		<?php $__currentLoopData = $jabatan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $jabatans): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
 		<tr>
-			<td><?php echo e($no++); ?></td>
-			<td><?php echo e($jabatans->kode_jabatan); ?></td>
-			<td><?php echo e($jabatans->nama_jabatan); ?></td>
+			<td><center><?php echo e($no++); ?></center></td>
+			<td><center><?php echo e($jabatans->kode_jabatan); ?></center></td>
+			<td><center><?php echo e($jabatans->nama_jabatan); ?></center></td>
             <td><center><?php echo 'Rp.' . number_format($jabatans->besaran_uang,2,',','.') ?></center></td>
 			
-		<td><a href="<?php echo e(route('jabatan.edit',$jabatans->id)); ?>" class="btn btn-warning">Update</a></td>	
+		<td><center><a href="<?php echo e(route('jabatan.edit',$jabatans->id)); ?>" class="btn btn-warning">Update</a></center></td>	
 		</td>
-		<td>
+		<td><center>
 
 		<?php echo Form::open(['method'=>'DELETE','route'=>['jabatan.destroy',$jabatans->id]]); ?>
 
 		<input type="submit" class="btn btn-danger" onclick="return confirm('anda yakin akan menghapus data?');"value="Delete"> 
 		<?php echo Form::close(); ?>
 
+        </center>
 		</td>
 		</tr>
 		

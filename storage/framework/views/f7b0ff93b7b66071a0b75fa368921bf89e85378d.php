@@ -12,45 +12,58 @@
                             <div class="col-md-6">
                                 <label for="name" >Nama Pegawai</label>
                                 <input id="name" type="text" class="form-control" name="name" required autofocus>
-
+                                <?php if($errors->has('name')): ?>
                                     <span class="help-block">
                                         <strong><?php echo e($errors->first('name')); ?></strong>
                                     </span>
+                                <?php endif; ?>
                             </div>
 
                             <div class="col-md-6">
                                 <label for="email" >E-MAIL</label>
                                 <input id="email" type="email" class="form-control" name="email" required autofocus>
-
+                                <?php if($errors->has('email')): ?>
                                     <span class="help-block">
                                         <strong><?php echo e($errors->first('email')); ?></strong>
                                     </span>
+                                <?php endif; ?>
                             </div>
 
                              <div class="col-md-12">
                                 <label >Type User</label>
                                    <select name="permision" class="col-md-12 form-control" required>
-                                       <option>Pilih Type User</option>
-                                       <option>Admin</option>
-                                       <option>HRD</option>
-                                       <option>Bagian Administrasi</option>
-                                       <option>Pegawai</option>
+                                       <option value="">Pilih Type User</option>
+                                       <option value="Admin">Admin</option>
+                                       <option value="HRD">HRD</option>
+                                       <option value="Bagian Administrasi">Bagian Administrasi</option>
+                                       <option value="Pegawai">Pegawai</option>
                                    </select>
+                                    <?php if($errors->has('permision')): ?>
+                                    <span class="help-block">
+                                        <strong><?php echo e($errors->first('permision')); ?></strong>
+                                    </span>
+                                <?php endif; ?>
                             </div>
 
                             <div class="col-md-6">
                                 <label >Password</label>
                                     <input id="password" type="password" class="form-control" name="password" required autofocus>
-
+                                    <?php if($errors->has('password')): ?>
                                         <span class="help-block">
                                             <strong><?php echo e($errors->first('password')); ?></strong>
                                         </span>
+                                    <?php endif; ?>
                             </div>
 
                             <div class="col-md-6">
                                 <label >Confirm Password</label>
 
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation"required autofocus>
+                                 <?php if($errors->has('password')): ?>
+                                        <span class="help-block">
+                                            <strong><?php echo e($errors->first('password')); ?></strong>
+                                        </span>
+                                    <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -68,10 +81,11 @@
                             <div class="col-md-12">
                                 <label for="nip" >NIP Pegawai</label>
                                 <input id="nip" type="text" class="form-control" name="nip" required autofocus>
-
+                                 <?php if($errors->has('nip')): ?>
                                     <span class="help-block">
                                         <strong><?php echo e($errors->first('nip')); ?></strong>
                                     </span>
+                                <?php endif; ?>
                             </div>
 
                             <div class="col-md-6">
@@ -81,7 +95,9 @@
                                             <option  value="<?php echo e($datajabatan->id); ?>" ><?php echo e($datajabatan->nama_jabatan); ?></option>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
                                     </select>
+                                     <?php if($errors->has('jabatan_id')): ?>
                                     <span><?php echo e($errors->first('jabatan_id')); ?></span>
+                                    <?php endif; ?>
                             </div>
 
                             <div class="col-md-6">
@@ -91,10 +107,12 @@
                                             <option  value="<?php echo e($datagolongan->id); ?>" ><?php echo e($datagolongan->nama_golongan); ?></option>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
                                     </select>
+                                    <?php if($errors->has('golongan_id')): ?>
                                     <span class="help-block">
                                         <?php echo e($errors->first('golongan_id')); ?>
 
                                     </span>
+                                    <?php endif; ?>
                             </div>
 
                             <div class="col-md-12">

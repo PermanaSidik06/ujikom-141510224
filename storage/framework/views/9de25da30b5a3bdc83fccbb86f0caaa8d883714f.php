@@ -38,12 +38,24 @@
                                     </span>
                     </div>
 
-                    <div class="col-md-12">
-                        <?php echo Form::label('Status', 'Status'); ?>
+                    <div class="form-group<?php echo e($errors->has('status') ? ' has-error' : ''); ?>">
+                            <label for="status" class="col-md-12 control-label">Status</label>
 
-                        <?php echo Form::text('status',null,['class'=>'form-control','required']); ?>
-
-                    </div>
+                            <div class="col-md-6">
+                                <select name="status" class="form-control">
+                                    <option value="">Pilih</option>
+                                    <option value="Belum Menikah">Belum Menikah</option>
+                                    <option value="Menikah">Menikah</option>
+                                    <option value="Duda">Duda</option>
+                                    <option value="Janda">Janda</option>
+                                </select>
+                                <?php if($errors->has('status')): ?>
+                                    <span class="help-block">
+                                        <strong><?php echo e($errors->first('status')); ?></strong>
+                                    </span>
+                                <?php endif; ?>
+                            </div>
+                        </div>
 
                     <div class="col-md-12">
                         <?php echo Form::label('jumlah anak', 'jumlah anak'); ?>

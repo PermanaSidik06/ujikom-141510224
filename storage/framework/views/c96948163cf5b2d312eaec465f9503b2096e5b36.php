@@ -7,46 +7,64 @@
                     <div class="panel-body">
                      <?php echo Form::model($pegawai,['method'=>'PATCH','route'=>['pegawai.update' ,$pegawai->id]]); ?>
 
-                            <div class="col-md-6">
-                                <label for="name" >Nama Pegawai</label>
-                                <input id="name" value="<?php echo e($user->name); ?>" type="text" class="form-control" name="name" required autofocus>
+                        
+                        <div class="col-md-12">
+                        <div class="form-group<?php echo e($errors->has('name') ? ' has-error' : ''); ?>">
+                            <label for="name" class="col-md-6 control-label">Name</label>
 
+                            <div class="col-md-12">
+                                <input id="name" type="name" class="form-control" name="name" value="<?php echo e($pegawai->user->name); ?>">
+
+                                <?php if($errors->has('name')): ?>
                                     <span class="help-block">
                                         <strong><?php echo e($errors->first('name')); ?></strong>
                                     </span>
+                                <?php endif; ?>
                             </div>
+                        </div>
+                        <div class="form-group<?php echo e($errors->has('email') ? ' has-error' : ''); ?>">
+                            <label for="email" class="col-md-6 control-label">E-Mail Address</label>
 
-                            <div class="col-md-6">
-                                <label for="email" >E-MAIL</label>
-                                <input id="email" value="<?php echo e($user->email); ?>" type="email" class="form-control" name="email" required autofocus>
+                            <div class="col-md-12">
+                                <input id="email" type="email" class="form-control"  name="email" value="<?php echo e($pegawai->user->email); ?>" >
 
+                                <?php if($errors->has('email')): ?>
                                     <span class="help-block">
                                         <strong><?php echo e($errors->first('email')); ?></strong>
                                     </span>
+                                <?php endif; ?>
                             </div>
+                        </div>
 
                             <div class="col-md-6">
                                 <label >Type User Lama</label>
                                    <input type="text" class="form-control" value="<?php echo e($user->permision); ?>" readonly>
                             </div>
-
-                             <div class="col-md-6">
-                                <label >Type User Baru</label>
-                                   <select name="permision" class="col-md-12 form-control" required>
-                                       <option>Admin</option>
-                                       <option>HRD</option>
-                                       <option>Bagian Administrasi</option>
-                                       <option>Pegawai</option>
+                            
+                            <div class="col-md-6">
+                                <label >Type User</label>
+                                   <select name="permision" class="col-md-6 form-control" required>
+                                       <option value="">Pilih Type User</option>
+                                       <option value="Admin">Admin</option>
+                                       <option value="HRD">HRD</option>
+                                       <option value="Bagian Administrasi">Bagian Administrasi</option>
+                                       <option value="Pegawai">Pegawai</option>
                                    </select>
+                                    <?php if($errors->has('permision')): ?>
+                                        <span class="help-block">
+                                            <strong><?php echo e($errors->first('permision')); ?></strong>
+                                        </span>
+                                    <?php endif; ?>
                             </div>
 
                             <div class="col-md-6">
                                 <label >Password</label>
                                     <input id="password" type="password" class="form-control" name="password" required autofocus>
-
+                                    <?php if($errors->has('password')): ?>
                                         <span class="help-block">
                                             <strong><?php echo e($errors->first('password')); ?></strong>
                                         </span>
+                                    <?php endif; ?>
                             </div>
 
                             <div class="col-md-6">
@@ -67,13 +85,19 @@
                         <div class="panel-heading"><h3><center>Update Data Pegawai</center></h3> </div>
                         <div class="panel-body">
 
-                            <div class="col-md-12">
-                                <label for="nip" >NIP Pegawai</label>
-                                <input id="nip" value="<?php echo e($pegawai->nip); ?>" type="text" class="form-control" name="nip" required autofocus>
+                         <div class="col-md-12">
+                            <div class="form-group<?php echo e($errors->has('nip') ? ' has-error' : ''); ?>">
+                            <label for="nip" class="control-label">NIP</label>
 
+                           
+                                <input id="nip" type="text" class="form-control" name="nip" value="<?php echo e($pegawai->nip); ?>"  autofocus>
+
+                                <?php if($errors->has('nip')): ?>
                                     <span class="help-block">
                                         <strong><?php echo e($errors->first('nip')); ?></strong>
                                     </span>
+                                <?php endif; ?>
+                            </div>
                             </div>
 
                             <div class="col-md-6">
@@ -111,10 +135,12 @@
                                             <option  value="<?php echo e($datagolongan->id); ?>" ><?php echo e($datagolongan->nama_golongan); ?></option>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
                                     </select>
+                                    <?php if($errors->has('nama_golongan')): ?>
                                     <span class="help-block">
                                         <?php echo e($errors->first('nama_golongan')); ?>
 
                                     </span>
+                                    <?php endif; ?>
                             </div>
 
                             <div class="col-md-12">
