@@ -1,13 +1,82 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 @section('content')
-<center><h1>Edit Lembur Pegawai</h1></center>
-        <table class="table table-striped table-bordered table-hover">
+<style type="text/css">
+    th,td{
+        text-align: center;
+    }
+</style>
+<div class="col-md-2 ">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <center>
+                <h3>Payroll Application</h3>
+                <h5>HALAMAN WEB</h5>
+                <div class="collapse navbar-collapse">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="nav navbar-nav">
+                        &nbsp;
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="nav navbar-nav navbar-center">
+                        <!-- Authentication Links -->
+                        @if (Auth::guest())
+                            <li><a class="" href="{{ url('/login') }}">Login</a></li>
+                        @else
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="{{ url('/logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endif
+                    </ul>
+                </div>
+
+
+                <div class="panel-body" align="center">
+                    
+                    <a class="btn btn-primary form-control" href="{{url('jabatan')}}">Jabatan</a><hr>
+                    <a class="btn btn-primary form-control" href="{{url('golongan')}}">Golongan</a><hr>
+                    <a class="btn btn-primary form-control" href="{{url('pegawai')}}">Pegawai</a><hr>
+                    <a class="btn btn-primary form-control" href="{{url('kategori_lembur')}}">Kategori Lembur</a><hr> 
+
+                </div>
+            </center>
+        </div>
+    </div>
+</div>
+
+
+<center>
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                    <div class="panel-heading"><h3><center>Update Lembur Karyawan</center></h3> </div>
+                    <div class="panel-body">
+
                         {!! Form::model($lembur_pegawai,['method'=>'PATCH','route'=>['lembur_pegawai.update',$lembur_pegawai->id]])!!}
                     
-                    <div class="col-md-12">
-                        {!! Form::label('Kode Lembur', 'Kode Lembur') !!}
-                        {!! Form::text('kode_lembur_id',null,['class'=>'form-control','required']) !!}
-                    </div>
+                        <div class="col-md-12">
+                        <label>Kode Lembur</label>
+                            <select name="kode_lembur_id" class="form-control" required>
+                                @foreach($katlembur as $data)
+                                <option value="{{$data->id}}">{{$data->kode_lembur}}</option>
+                                @endforeach
+                            </select><br>
+                        </div>
 
                       <div class="col-md-6">
                                 <label>NIP Sebelumnya</label>
@@ -51,6 +120,64 @@
                     {!! Form::close() !!}
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    th,td{
+        text-align: center;
+    }
+</style>
+<div class="col-md-2 ">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <center>
+                <h3>Payroll Application</h3>
+                <h5>HALAMAN WEB</h5>
+                <div class="collapse navbar-collapse">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="nav navbar-nav">
+                        &nbsp;
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="nav navbar-nav navbar-center">
+                        <!-- Authentication Links -->
+                        @if (Auth::guest())
+                            <li><a class="" href="{{ url('/login') }}">Login</a></li>
+                        @else
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="{{ url('/logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endif
+                    </ul>
+                </div>
+
+
+                <div class="panel-body" align="center">
+                    <a class="btn btn-primary form-control" href="{{url('lembur_pegawai')}}">Lembur Pegawai</a><hr>
+                    <a class="btn btn-primary form-control" href="{{url('tunjangan')}}">Tunjangan</a><hr>
+                    <a class="btn btn-primary form-control" href="{{url('tunjangan_pegawai')}}">Tunjangan Karyawan</a><hr>
+                    <a class="btn btn-primary form-control" href="{{url('penggajian')}}">Penggajian Karyawan</a><hr>  
+
+                </div>
+            </center>
         </div>
     </div>
 </div>

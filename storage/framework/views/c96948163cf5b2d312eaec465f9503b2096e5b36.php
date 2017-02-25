@@ -1,89 +1,74 @@
 <?php $__env->startSection('content'); ?>
+<style type="text/css">
+    th,td{
+        text-align: center;
+    }
+</style>
+<div class="col-md-2 ">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <center>
+                <h3>Payroll Application</h3>
+                <h5>HALAMAN WEB</h5>
+                <div class="collapse navbar-collapse">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="nav navbar-nav">
+                        &nbsp;
+                    </ul>
 
-        <div class="row">
-            <div class="col-md-12 ">
-                <div class="panel panel-default">
-                    <div class="panel-heading"><h3><center>Update</center></h3> </div>
-                    <div class="panel-body">
-                     <?php echo Form::model($pegawai,['method'=>'PATCH','route'=>['pegawai.update' ,$pegawai->id]]); ?>
+                    <!-- Right Side Of Navbar -->
+                    <ul class="nav navbar-nav navbar-center">
+                        <!-- Authentication Links -->
+                        <?php if(Auth::guest()): ?>
+                            <li><a class="" href="<?php echo e(url('/login')); ?>">Login</a></li>
+                        <?php else: ?>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    <?php echo e(Auth::user()->name); ?> <span class="caret"></span>
+                                </a>
 
-                        
-                        <div class="col-md-12">
-                        <div class="form-group<?php echo e($errors->has('name') ? ' has-error' : ''); ?>">
-                            <label for="name" class="col-md-6 control-label">Name</label>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="<?php echo e(url('/logout')); ?>"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
 
-                            <div class="col-md-12">
-                                <input id="name" type="name" class="form-control" name="name" value="<?php echo e($pegawai->user->name); ?>">
+                                        <form id="logout-form" action="<?php echo e(url('/logout')); ?>" method="POST" style="display: none;">
+                                            <?php echo e(csrf_field()); ?>
 
-                                <?php if($errors->has('name')): ?>
-                                    <span class="help-block">
-                                        <strong><?php echo e($errors->first('name')); ?></strong>
-                                    </span>
-                                <?php endif; ?>
-                            </div>
-                        </div>
-                        <div class="form-group<?php echo e($errors->has('email') ? ' has-error' : ''); ?>">
-                            <label for="email" class="col-md-6 control-label">E-Mail Address</label>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        <?php endif; ?>
+                    </ul>
+                </div>
 
-                            <div class="col-md-12">
-                                <input id="email" type="email" class="form-control"  name="email" value="<?php echo e($pegawai->user->email); ?>" >
 
-                                <?php if($errors->has('email')): ?>
-                                    <span class="help-block">
-                                        <strong><?php echo e($errors->first('email')); ?></strong>
-                                    </span>
-                                <?php endif; ?>
-                            </div>
-                        </div>
+                <div class="panel-body" align="center">
+                    
+                    <a class="btn btn-primary form-control" href="<?php echo e(url('jabatan')); ?>">Jabatan</a><hr>
+                    <a class="btn btn-primary form-control" href="<?php echo e(url('golongan')); ?>">Golongan</a><hr>
+                    <a class="btn btn-primary form-control" href="<?php echo e(url('pegawai')); ?>">Pegawai</a><hr>
+                    <a class="btn btn-primary form-control" href="<?php echo e(url('kategori_lembur')); ?>">Kategori Lembur</a><hr> 
 
-                            <div class="col-md-6">
-                                <label >Type User Lama</label>
-                                   <input type="text" class="form-control" value="<?php echo e($user->permision); ?>" readonly>
-                            </div>
-                            
-                            <div class="col-md-6">
-                                <label >Type User</label>
-                                   <select name="permision" class="col-md-6 form-control" required>
-                                       <option value="">Pilih Type User</option>
-                                       <option value="Admin">Admin</option>
-                                       <option value="HRD">HRD</option>
-                                       <option value="Bagian Administrasi">Bagian Administrasi</option>
-                                       <option value="Pegawai">Pegawai</option>
-                                   </select>
-                                    <?php if($errors->has('permision')): ?>
-                                        <span class="help-block">
-                                            <strong><?php echo e($errors->first('permision')); ?></strong>
-                                        </span>
-                                    <?php endif; ?>
-                            </div>
-
-                            <div class="col-md-6">
-                                <label >Password</label>
-                                    <input id="password" type="password" class="form-control" name="password" required autofocus>
-                                    <?php if($errors->has('password')): ?>
-                                        <span class="help-block">
-                                            <strong><?php echo e($errors->first('password')); ?></strong>
-                                        </span>
-                                    <?php endif; ?>
-                            </div>
-
-                            <div class="col-md-6">
-                                <label >Confirm Password</label>
-
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autofocus>
-                            </div>
-                        </div>
-                    </div>
-                <div>
-            </div>
+                </div>
+            </center>
         </div>
+    </div>
+</div>
 
 
-            <div class="row">
-                <div class="col-md-12">
+<center>
+        <div class="col-md-8">
                     <div class="panel panel-default">
                         <div class="panel-heading"><h3><center>Update Data Pegawai</center></h3> </div>
                         <div class="panel-body">
+                        <?php echo Form::model($pegawai,['method'=>'PATCH','route'=>['pegawai.update' ,$pegawai->id]]); ?>
+
+
 
                          <div class="col-md-12">
                             <div class="form-group<?php echo e($errors->has('nip') ? ' has-error' : ''); ?>">
@@ -120,17 +105,18 @@
 
                             <div class="col-md-6">
                                 <label for="Jabatan">Jabatan</label>
-                                    <select class="col-md-6 form-control" name="nama_jabatan">
+                                    <select class="col-md-6 form-control" name="jabatan_id">
                                         <?php $__currentLoopData = $jabatan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $datajabatan): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
                                             <option  value="<?php echo e($datajabatan->id); ?>" ><?php echo e($datajabatan->nama_jabatan); ?></option>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
                                     </select>
+
                                     <span><?php echo e($errors->first('nama_jabatan')); ?></span>
                             </div>
 
                             <div class="col-md-6">
                                 <label for="Jabatan">Golongan</label>
-                                    <select class="col-md-6 form-control" name="nama_golongan">
+                                    <select class="col-md-6 form-control" name="golongan_id">
                                         <?php $__currentLoopData = $golongan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $datagolongan): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
                                             <option  value="<?php echo e($datagolongan->id); ?>" ><?php echo e($datagolongan->nama_golongan); ?></option>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
@@ -157,7 +143,7 @@
                             <div class="col-md-6"></div>
 
                             <div class="col-md-12" >
-                                <button type="submit" class="btn btn-primary form-control">Tambah</button>
+                                <button type="submit" class="btn btn-primary form-control">Update</button>
                             </div>
                         </div>
                     </div>
@@ -166,6 +152,65 @@
         </div>
         </form>
 
+<style type="text/css">
+    th,td{
+        text-align: center;
+    }
+</style>
+<div class="col-md-2 ">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <center>
+                <h3>Payroll Application</h3>
+                <h5>HALAMAN WEB</h5>
+                <div class="collapse navbar-collapse">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="nav navbar-nav">
+                        &nbsp;
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="nav navbar-nav navbar-center">
+                        <!-- Authentication Links -->
+                        <?php if(Auth::guest()): ?>
+                            <li><a class="" href="<?php echo e(url('/login')); ?>">Login</a></li>
+                        <?php else: ?>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    <?php echo e(Auth::user()->name); ?> <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="<?php echo e(url('/logout')); ?>"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="<?php echo e(url('/logout')); ?>" method="POST" style="display: none;">
+                                            <?php echo e(csrf_field()); ?>
+
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        <?php endif; ?>
+                    </ul>
+                </div>
+
+
+                <div class="panel-body" align="center">
+                    <a class="btn btn-primary form-control" href="<?php echo e(url('lembur_pegawai')); ?>">Lembur Pegawai</a><hr>
+                    <a class="btn btn-primary form-control" href="<?php echo e(url('tunjangan')); ?>">Tunjangan</a><hr>
+                    <a class="btn btn-primary form-control" href="<?php echo e(url('tunjangan_pegawai')); ?>">Tunjangan Karyawan</a><hr>
+                    <a class="btn btn-primary form-control" href="<?php echo e(url('penggajian')); ?>">Penggajian Karyawan</a><hr>  
+
+                </div>
+            </center>
+        </div>
+    </div>
+</div>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.admin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\lembur_pegawaiModel;
 use App\pegawaiModel;
+use App\kategori_lemburModel;
 use Request;
 
 class lembur_pegawaiController extends Controller
@@ -27,7 +28,8 @@ class lembur_pegawaiController extends Controller
      public function create()
     {   $pegawai=pegawaiModel::all();
         $lembur_pegawai=lembur_pegawaiModel::all();
-        return view('lembur_pegawai.create',compact('lembur_pegawai','pegawai'));
+        $katlembur=kategori_lemburModel::all();
+        return view('lembur_pegawai.create',compact('lembur_pegawai','pegawai', 'katlembur'));
         //
     }
 
@@ -65,8 +67,9 @@ class lembur_pegawaiController extends Controller
     {
         //
         $lembur_pegawai=lembur_pegawaiModel::find($id);
+        $katlembur=kategori_lemburModel::all();
         $pegawai=pegawaiModel::all();
-        return view('lembur_pegawai.edit',compact('lembur_pegawai', 'pegawai'));
+        return view('lembur_pegawai.edit',compact('lembur_pegawai', 'pegawai', 'katlembur'));
     }
 
     /**

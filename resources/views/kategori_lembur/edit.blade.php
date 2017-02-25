@@ -1,7 +1,71 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 @section('content')
-<center><h1>Update Kategori Lembur</h1></center>
-        <table class="table table-striped table-bordered table-hover">
+<style type="text/css">
+    th,td{
+        text-align: center;
+    }
+</style>
+<div class="col-md-2 ">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <center>
+                <h3>Payroll Application</h3>
+                <h5>HALAMAN WEB</h5>
+                <div class="collapse navbar-collapse">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="nav navbar-nav">
+                        &nbsp;
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="nav navbar-nav navbar-center">
+                        <!-- Authentication Links -->
+                        @if (Auth::guest())
+                            <li><a class="" href="{{ url('/login') }}">Login</a></li>
+                        @else
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="{{ url('/logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endif
+                    </ul>
+                </div>
+
+
+                <div class="panel-body" align="center">
+                    
+                    <a class="btn btn-primary form-control" href="{{url('jabatan')}}">Jabatan</a><hr>
+                    <a class="btn btn-primary form-control" href="{{url('golongan')}}">Golongan</a><hr>
+                    <a class="btn btn-primary form-control" href="{{url('pegawai')}}">Pegawai</a><hr>
+                    <a class="btn btn-primary form-control" href="{{url('kategori_lembur')}}">Kategori Lembur</a><hr> 
+
+                </div>
+            </center>
+        </div>
+    </div>
+</div>
+
+
+<center>
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                    <div class="panel-heading"><h3><center>Update Kategori Lembur</center></h3> </div>
+                    <div class="panel-body">
 
                 {!! Form::model($kategori_lembur,['method'=>'PATCH','route'=>['kategori_lembur.update',$kategori_lembur->id]])!!}
                    <div class="col-md-12">
@@ -35,25 +99,29 @@
                             <div class="col-md-6">
                                 <label for="Jabatan">Jabatan</label>
                                     <select class="col-md-6 form-control" name="jabatan_id">
-                                    <option>Pilih Jabatan Baru</option>
+                                    <option value="">Pilih Jabatan Baru</option>
                                         @foreach($jabatan as $datajabatan)
                                             <option  value="{{$datajabatan->id}}" >{{$datajabatan->nama_jabatan}}</option>
                                         @endforeach
                                     </select>
+                                    @if ($errors->has('jabatan_id'))
                                     <span>{{$errors->first('jabatan_id')}}</span>
+                                    @endif
                             </div>
 
                             <div class="col-md-6">
                                 <label for="Jabatan">Golongan</label>
                                     <select class="col-md-6 form-control" name="golongan_id">
-                                    <option>Pilih Golongan Baru</option>
+                                    <option value="">Pilih Golongan Baru</option>
                                         @foreach($golongan as $datagolongan)
                                             <option  value="{{$datagolongan->id}}" >{{$datagolongan->nama_golongan}}</option>
                                         @endforeach
                                     </select>
+                                    @if ($errors->has('golongan_id'))
                                     <span class="help-block">
                                         {{$errors->first('golongan_id')}}
                                     </span>
+                                    @endif
                             </div>
 
                     <div class="col-md-12">
@@ -65,13 +133,71 @@
                                                 </span>
                                      @endif
                     </div>
-                    &nbsp
+                    &nbsp;
                     <div class="col-md-12">
                         {!! Form::submit('SAVE', ['class' => 'btn btn-primary form-control']) !!}
                     </div>
                     {!! Form::close() !!}
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    th,td{
+        text-align: center;
+    }
+</style>
+<div class="col-md-2 ">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <center>
+                <h3>Payroll Application</h3>
+                <h5>HALAMAN WEB</h5>
+                <div class="collapse navbar-collapse">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="nav navbar-nav">
+                        &nbsp;
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="nav navbar-nav navbar-center">
+                        <!-- Authentication Links -->
+                        @if (Auth::guest())
+                            <li><a class="" href="{{ url('/login') }}">Login</a></li>
+                        @else
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="{{ url('/logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endif
+                    </ul>
+                </div>
+
+
+                <div class="panel-body" align="center">
+                    <a class="btn btn-primary form-control" href="{{url('lembur_pegawai')}}">Lembur Pegawai</a><hr>
+                    <a class="btn btn-primary form-control" href="{{url('tunjangan')}}">Tunjangan</a><hr>
+                    <a class="btn btn-primary form-control" href="{{url('tunjangan_pegawai')}}">Tunjangan Karyawan</a><hr>
+                    <a class="btn btn-primary form-control" href="{{url('penggajian')}}">Penggajian Karyawan</a><hr>  
+
+                </div>
+            </center>
         </div>
     </div>
 </div>

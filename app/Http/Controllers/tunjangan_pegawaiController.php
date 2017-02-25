@@ -93,8 +93,8 @@ class tunjangan_pegawaiController extends Controller
     {
         //
         $Update=Request::all();
-        $tunjangan=tunjanganModel::find($id);
-        $pegawai=pegawaiModel::find($id);
+        $tunjangan=tunjanganModel::all();
+        $pegawai=pegawaiModel::all();
         $tunjangan_pegawai=tunjangan_pegawaiModel::find($id);
         $tunjangan_pegawai->update($Update);
         return redirect('tunjangan_pegawai');

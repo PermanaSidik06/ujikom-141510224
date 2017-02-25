@@ -20,14 +20,14 @@ class tunjanganModel extends Model
 		return $this->belongsTo('App\golonganModel','golongan_id');
 	}
 
-	public function kategori_lemburModel()
-	{
-		return $this->hasMany('App\kategori_lemburModel','kode_lembur_id');
-	}
+	// public function kategori_lemburModel()
+	// {
+	// 	return $this->hasMany('App\kategori_lemburModel','kode_lembur');
+	// }
 
 	public function tunjangan_pegawaiModel()
 	{
-		return $this->hasMany('App\tunjangan_pegawaiModel','kode_tunjangan');
+		return $this->hasMany('App\tunjangan_pegawaiModel','kode_tunjangan_id');
 	}
 
 }

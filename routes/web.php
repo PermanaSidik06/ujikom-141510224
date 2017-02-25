@@ -19,7 +19,7 @@ Route::get('/','HomeController@index');
 Route::get('home','HomeController@index');
 
 Route::get('/index1','bbController@index1');
-Route::resource('/pegawai','pegawaiController');
+Route::resource('/pegawai', 'pegawaiController');
 Route::resource('/jabatan','jabatanController');
 Route::resource('/golongan','golonganController');
 Route::resource('/tunjangan','tunjanganController');

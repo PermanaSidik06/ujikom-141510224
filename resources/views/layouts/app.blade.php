@@ -20,7 +20,7 @@
         ]); ?>
     </script>
 </head>
-<body background="minion.jpg">
+<body background="">
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
